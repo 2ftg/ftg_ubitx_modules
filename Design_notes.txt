@@ -1,0 +1,38 @@
+ftg_modular_ubitx
+
+I want to extend the uBITX design quite a bit. 
+The traditional 45MHz 1st IF and 12MHz 2nd IF for SSB are retained.
+However as I'm planing on including native 6m, 4m and 2m functionality in the rig with high side LO injection, I also want native FM receive and preferably also transmit.
+The easy way to do this is to add some switching afther the 45MHz IF filter and IF amplifiers.
+Thusly the 45MHz IF can be mixed down to 455kHz with a crystal oscillator and a traditional FM IF chip like SA605 can be used.
+Using a chip with 455kHz IF for FM also allows adding a separate 455kHz AM detector for some broadcast band and airband listening. 
+
+The VHF mods for the 1st mixer board includes a DPDT relay for switching the mixer output between the HF 30MHz LPF and the bi-directional VHF amplifier.
+The VHF bidiamp is made from MAR-6 and MAR-3 MMIC's switched with HSMP-3820 PIN-diodes, the idea is copied from the N6QW 20m MMIC transceiver.
+Following the amplifer is a 49-150MHz bandpass filter with enhanced 45MHz notch. 
+Notching out the 45Mhz should offer enough suppression for 45Mhz products for amplifying 50MHz for transmit.
+
+The 1st IF bidiamp is done with BFR93A VHF transistors instead of 2N3904 to get good 45MHz gain without distortion.
+special precations need to be observed due to their 5GHz fT compared to the 300MHz fT of 2N3904. 
+The amp is configured for 12dB gain in both directions.
+This board includes the IF switch relay for switching between 12MHz SSB IF strip and the 455kHz AM/FM IF strip.
+
+Due to the build having a separate FM IF with it's detectors, the 12MHz SSB product detector audio output is swithced with a 74HC4052 dual 1p4t MUX.
+
+The 12MHz SSB filter board is done without any large mods. 
+A provision for adding trimmers to the SSB filter caps is added as it costs nothing. 
+The 12MHz bidiamp is almost stock with it's 2N3904 transistors configured for 12dB gain. 
+The RX path has been modified for variable gain. 
+
+The 2nd mixer is a Mini-Circuits RMS-2. While overkill with it's 5-1000MHz coverage, I have some 
+in my junkbox and the pinout is similar to ADE-1, RMS-1 and so on. 
+
+The RMS-2 product detector is followed by a 74HC4052 MUX for switching the audio output to the audio amplifier chain between SSB/CW, FM and AM.
+Same goes for transmit.
+
+The final audio amplifier is the stock TDA2822, but fed via a 9V regulator. 
+The preamp stages are built with NE5534 op-amps instead of 2N3904's. 
+The audio stages include a 300Hz high pass filter for getting rid of low frequencies and potential CTCSS noise.
+
+Microphone amplification is done with a eBay sourced SSM2167 microphone pre-amplifier and compressor. 
+The compressed audio is then further buffered and fed to the balanced modulator or FM modulator.
