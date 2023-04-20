@@ -1,7 +1,7 @@
 ftg_modular_ubitx
 
 I want to extend the uBITX design quite a bit. 
-The traditional 45MHz 1st IF and 12MHz 2nd IF for SSB are retained.
+The traditional 45MHz 1st IF and 11MHz 2nd IF for SSB are retained.
 However as I'm planing on including native 6m, 4m and 2m functionality in the rig with high side LO injection, I also want native FM receive and preferably also transmit.
 The easy way to do this is to add some switching afther the 45MHz IF filter and IF amplifiers.
 Thusly the 45MHz IF can be mixed down to 455kHz with a crystal oscillator and a traditional FM IF chip like SA605 can be used.
